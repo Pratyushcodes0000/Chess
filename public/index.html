@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chess Online</title>
+<link rel="stylesheet" href="../style/style.css">
+</head>
+
+<body>
+
+<div id="loadingOverlay" class="hidden">
+
+  <div class="matchmaking-card">
+
+    <div class="chess-icon">♟</div>
+
+    <h2>Finding Opponent</h2>
+
+    <p class="searching-text">
+      Searching<span class="dots"></span>
+    </p>
+
+    <div class="spinner"></div>
+
+  </div>
+
+</div>
+
+<nav class="navbar">
+<h2 class="logo">♟ ChessArena</h2>
+
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#">Features</a>
+<a href="#">Leaderboard</a>
+</div>
+
+<button class="play-btn" onclick="enter_queue()">Play Now</button>
+</nav>
+
+
+<section class="hero">
+
+<div class="hero-text">
+<h1>Play Chess <span>Online</span></h1>
+
+<p>
+Challenge players worldwide in real-time multiplayer chess.
+Fast matchmaking, beautiful board, and competitive ranking.
+</p>
+
+<div class="hero-buttons">
+<button class="primary-btn" onclick="enter_queue()">Start Game</button>
+<button class="secondary-btn">Learn More</button>
+</div>
+
+</div>
+
+<div class="hero-board">
+
+<div class="board">
+<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- <section class="features">
+
+<h2>Features</h2>
+
+<div class="feature-grid">
+
+<!-- <div class="card">
+<h3>⚡ Real Time</h3>
+<p>Play instantly with WebSockets powered multiplayer games.</p>
+</div>
+
+<div class="card">
+<h3>🌎 Global Matchmaking</h3>
+<p>Find opponents from around the world automatically.</p>
+</div>
+
+<div class="card">
+<h3>📊 Rankings</h3>
+<p>Climb the leaderboard and become a chess master.</p>
+</div>
+</div> -->
+<!-- </section> -->
+<footer>
+<p>© 2026 ChessArena</p>
+</footer>
+<script src="/socket.io/socket.io.js"></script>
+<script src="../javascript/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+/* =========================
+   PAGE LAYOUT
+========================= */
+
+body {
+  margin: 0;
+  height: 100vh;
+
+  background: radial-gradient(circle at top, #2b2b2b, #141414);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: Arial, sans-serif;
+}
+
+/* Container */
+.container {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+
+/* =========================
+   CHESS BOARD
+========================= */
+
+.board {
+
+  display: grid;
+
+  grid-template-columns: repeat(8, 80px);
+  grid-template-rows: repeat(8, 80px);
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  box-shadow:
+  0 20px 40px rgba(0,0,0,0.7),
+  inset 0 0 10px rgba(0,0,0,0.6);
+
+  border: 6px solid #1a1a1a;
+
+  background: #333;
+}
+
+
+/* =========================
+   SQUARES
+========================= */
+
+.square {
+
+  width: 80px;
+  height: 80px;
+
+  background-size: 70px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  transition:
+  transform .15s ease,
+  box-shadow .15s ease,
+  background-color .2s ease;
+
+  cursor: pointer;
+}
+
+
+/* LIGHT / DARK */
+
+.light {
+  background-color: #f0d9b5;
+}
+
+.dark {
+  background-color: #b58863;
+}
+
+
+/* =========================
+   HOVER EFFECT
+========================= */
+
+.square:hover {
+
+  transform: scale(1.05);
+
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+}
+
+
+/* =========================
+   SELECTED TILE
+========================= */
+
+.square.selected {
+
+  background-color: #90ee90 !important;
+
+  box-shadow:
+  inset 0 0 15px rgba(0,0,0,0.5),
+  0 0 12px rgba(144,238,144,0.7);
+}
+
+
+/* =========================
+   RESPONSIVE BOARD
+========================= */
+
+@media (max-width: 700px) {
+
+  .board {
+    grid-template-columns: repeat(8, 60px);
+    grid-template-rows: repeat(8, 60px);
+  }
+
+  .square {
+    width: 60px;
+    height: 60px;
+    background-size: 50px;
+  }
+
+}

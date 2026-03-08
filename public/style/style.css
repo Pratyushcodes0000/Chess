@@ -1,0 +1,399 @@
+/* =====================================================
+   1. ROOT VARIABLES
+===================================================== */
+
+:root{
+  --bg1:#0f172a;
+  --bg2:#020617;
+  --accent:#4CAF50;
+  --text:#e2e8f0;
+}
+
+
+/* =====================================================
+   2. GLOBAL RESET
+===================================================== */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: Inter, sans-serif;
+  background: linear-gradient(180deg,var(--bg1),var(--bg2));
+  color:var(--text);
+  min-height:100vh;
+}
+
+
+/* =====================================================
+   3. NAVBAR
+===================================================== */
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 80px;
+  animation:fadeDown 1s ease;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:700;
+}
+
+.nav-links{
+  display:flex;
+  gap:30px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#cbd5f5;
+  transition:.3s;
+}
+
+.nav-links a:hover{
+  color:white;
+}
+
+.play-btn{
+  background:var(--accent);
+  border:none;
+  padding:10px 20px;
+  border-radius:8px;
+  cursor:pointer;
+  color:white;
+  font-weight:600;
+  transition:transform .2s ease;
+}
+
+.play-btn:hover{
+  transform:translateY(-2px);
+}
+
+
+/* =====================================================
+   4. HERO SECTION
+===================================================== */
+
+.hero{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:100px 80px;
+  gap:80px;
+}
+
+.hero-text{
+  max-width:500px;
+  animation:fadeUp 1s ease;
+}
+
+.hero-text h1{
+  font-size:56px;
+  margin-bottom:20px;
+}
+
+.hero-text span{
+  color:var(--accent);
+}
+
+.hero-text p{
+  line-height:1.6;
+  opacity:.8;
+  margin-bottom:30px;
+}
+
+
+/* =====================================================
+   5. HERO BUTTONS
+===================================================== */
+
+.hero-buttons{
+  display:flex;
+  gap:15px;
+}
+
+.primary-btn{
+  background:var(--accent);
+  border:none;
+  padding:14px 28px;
+  border-radius:10px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.secondary-btn{
+  background:transparent;
+  border:1px solid #475569;
+  padding:14px 28px;
+  border-radius:10px;
+  color:white;
+  cursor:pointer;
+}
+
+
+/* =====================================================
+   6. CHESS BOARD
+===================================================== */
+
+.hero-board{
+  animation:float 6s ease-in-out infinite;
+}
+
+.board{
+  display:grid;
+  grid-template-columns:repeat(8,40px);
+  grid-template-rows:repeat(8,40px);
+  border-radius:8px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+.board div{
+  width:40px;
+  height:40px;
+}
+
+/* Chess pattern */
+
+.board div:nth-child(16n+1),
+.board div:nth-child(16n+3),
+.board div:nth-child(16n+5),
+.board div:nth-child(16n+7),
+.board div:nth-child(16n+10),
+.board div:nth-child(16n+12),
+.board div:nth-child(16n+14),
+.board div:nth-child(16n+16){
+  background:#b58863;
+}
+
+.board div:not(
+  :nth-child(16n+1),
+  :nth-child(16n+3),
+  :nth-child(16n+5),
+  :nth-child(16n+7),
+  :nth-child(16n+10),
+  :nth-child(16n+12),
+  :nth-child(16n+14),
+  :nth-child(16n+16)
+){
+  background:#f0d9b5;
+}
+
+
+/* =====================================================
+   7. FEATURES SECTION
+===================================================== */
+
+.features{
+  padding:120px 80px;
+  text-align:center;
+}
+
+.features h2{
+  font-size:40px;
+  margin-bottom:60px;
+}
+
+.feature-grid{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:30px;
+  border-radius:12px;
+  width:260px;
+  backdrop-filter:blur(10px);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  background:rgba(255,255,255,0.08);
+}
+
+
+/* =====================================================
+   8. FOOTER
+===================================================== */
+
+footer{
+  text-align:center;
+  padding:40px;
+  opacity:.6;
+}
+
+
+/* =====================================================
+   9. MATCHMAKING OVERLAY
+===================================================== */
+
+#loadingOverlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  inset:0;
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  background:rgba(0,0,0,0.65);
+  backdrop-filter:blur(6px);
+
+  z-index:999;
+}
+
+#loadingOverlay.hidden{
+  display:none !important;
+}
+
+/* Matchmaking Card */
+
+.matchmaking-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  padding:40px 50px;
+  border-radius:16px;
+
+  text-align:center;
+
+  box-shadow:
+  0 20px 60px rgba(0,0,0,0.7),
+  inset 0 1px 0 rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(20px);
+
+  animation:pop .4s ease;
+}
+
+/* Icon */
+
+.chess-icon{
+  font-size:42px;
+  margin-bottom:10px;
+  color:var(--accent);
+}
+
+/* Text */
+
+.matchmaking-card h2{
+  margin-bottom:8px;
+  font-weight:600;
+}
+
+.searching-text{
+  opacity:.8;
+  margin-bottom:20px;
+}
+
+/* Loading Spinner */
+
+.spinner{
+  margin:0 auto;
+  width:45px;
+  height:45px;
+
+  border-radius:50%;
+
+  border:4px solid rgba(255,255,255,0.1);
+  border-top:4px solid var(--accent);
+
+  animation:spin 1s linear infinite;
+}
+
+/* Animated dots */
+
+.dots::after{
+  content:"";
+  animation:dots 1.5s infinite;
+}
+
+
+/* =====================================================
+   10. ANIMATIONS
+===================================================== */
+
+@keyframes spin{
+  100%{ transform:rotate(360deg); }
+}
+
+@keyframes dots{
+  0%{content:""}
+  33%{content:"."}
+  66%{content:".."}
+  100%{content:"..."}
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes fadeDown{
+  from{
+    opacity:0;
+    transform:translateY(-40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes float{
+  0%{ transform:translateY(0px); }
+  50%{ transform:translateY(-20px); }
+  100%{ transform:translateY(0px); }
+}
+
+@keyframes pop{
+  from{
+    opacity:0;
+    transform:scale(.9) translateY(-10px);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) translateY(0);
+  }
+}
+
+
+/* =====================================================
+   11. RESPONSIVE DESIGN
+===================================================== */
+
+@media(max-width:900px){
+
+  .navbar{
+    padding:20px;
+  }
+
+  .hero{
+    flex-direction:column;
+    text-align:center;
+    padding:80px 20px;
+  }
+
+  .features{
+    padding:80px 20px;
+  }
+
+}
