@@ -1,0 +1,5 @@
+1.clone the repo
+2.node server.js (localhost:8000) || change the port 
+3.open two tabs in any browser 
+4.hit play now on both pages to enter matchmaking
+5.Play!!!!!
