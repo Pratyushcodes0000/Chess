@@ -9,13 +9,13 @@ This project demonstrates **real-time communication, game state synchronization,
 
 #  Features
 
-* ♟️ Real-time multiplayer gameplay
-* ⏱️ Player timers
-* 📜 Move history tracking
-* 🔄 Automatic matchmaking
-* 🎯 Last move highlighting
-* 🔁 Board orientation based on player color
-* 🔌 Handles opponent disconnects
+*  Real-time multiplayer gameplay
+*  Player timers
+*  Move history tracking
+*  Automatic matchmaking
+*  Last move highlighting
+*  Board orientation based on player color
+*  Handles opponent disconnects
 
 ---
 
