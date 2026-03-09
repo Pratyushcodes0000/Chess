@@ -140,6 +140,6 @@ This project is open-source and available under the **MIT License**.
 
 ---
 
-# 👨‍💻 Author
+#  Author
 
 Built as a learning project to explore **real-time systems and multiplayer game architecture using Node.js and WebSockets**.
