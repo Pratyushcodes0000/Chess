@@ -10,12 +10,19 @@
   <div id="alert-overlay" class="alert-overlay hidden">
   <div class="alert-box">
     <p id="alert-message">Alert Message</p>
-    <button id="alert-close">OK</button>
+    <button id="alert-close" onclick="gotohome()">OK</button>
   </div>
 </div>
 
   <div class="container">
-  <div class="board" id="board">
+  <div class="board-wrap">
+    <div class="board-frame" aria-label="Board coordinates">
+      <div class="coord-corner"></div>
+      <div class="coord-files top" id="filesTop" aria-hidden="true"></div>
+      <div class="coord-corner"></div>
+
+      <div class="coord-ranks left" id="ranksLeft" aria-hidden="true"></div>
+      <div class="board" id="board" aria-label="Chess board">
   <!-- Row 8 -->
   <div class="square light"></div>
   <div class="square dark"></div>
@@ -96,7 +103,41 @@
   <div class="square dark"></div>
   <div class="square light"></div>
 </div>
+      <div class="coord-ranks right" id="ranksRight" aria-hidden="true"></div>
+
+      <div class="coord-corner"></div>
+      <div class="coord-files bottom" id="filesBottom" aria-hidden="true"></div>
+      <div class="coord-corner"></div>
+    </div>
   </div>
+
+  <aside class="side-panel" aria-label="Game info">
+    <div class="panel-card clocks">
+      <div class="clock-row clock-black" id="clockBlack" aria-label="Black clock">
+        <div class="clock-meta">
+          <div class="clock-name">Black</div>
+          <div class="clock-sub" id="statusBlack">Waiting…</div>
+        </div>
+        <div class="clock-time" id="timeBlack">05:00</div>
+      </div>
+
+      <div class="clock-row clock-white" id="clockWhite" aria-label="White clock">
+        <div class="clock-meta">
+          <div class="clock-name">White</div>
+          <div class="clock-sub" id="statusWhite">Waiting…</div>
+        </div>
+        <div class="clock-time" id="timeWhite">05:00</div>
+      </div>
+    </div>
+
+    <div class="panel-card moves">
+      <div class="panel-head">
+        <div class="panel-title">Moves</div>
+        <div class="panel-sub" id="movesSub">0 plies</div>
+      </div>
+      <div class="move-list" id="moveList" role="log" aria-label="Move history"></div>
+    </div>
+  </aside>
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="../javascript/alert.js"></script>

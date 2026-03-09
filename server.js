@@ -4,7 +4,8 @@ const { Server } = require("socket.io");
 const { randomUUID } = require("crypto");
 const { Chess } = require("chess.js");
 
-const PORT = process.env.PORT || 8000;
+require('dotenv').config()
+const PORT = process.env.PORT;
 
 const app = express();
 const server = http.createServer(app);
@@ -25,21 +26,17 @@ function indexToSquare({ row, col }) {
 function startGameTimer(roomId) {
   const game = games[roomId];
   game.timer = setInterval(() => {
-    const now = Date.now();
-    const elapsed = Math.floor((now - game.lastMoveTime) / 1000);
-
     if (game.currentTurn === "w") {
-      game.whiteTime -= elapsed;
+      game.whiteTime--;
     } else {
-      game.blackTime -= elapsed;
+      game.blackTime--;
     }
-    game.lastMoveTime = now;
 
     io.to(roomId).emit("timer_update", {
       white_time: game.whiteTime,
       black_time: game.blackTime,
     });
-
+    
     if (game.whiteTime <= 0 || game.blackTime <= 0) {
       clearInterval(game.timer);
 
@@ -74,9 +71,9 @@ io.on("connection", (socket) => {
         lastMoveTime: Date.now(),
         timer: null,
       };
-
-      io.to(white).emit("match_found", { roomId, color: "white" });
-      io.to(black).emit("match_found", { roomId, color: "black" });
+     const game = games[roomId]
+      io.to(white).emit("match_found", { roomId, color: "white",time:game.whiteTime});
+      io.to(black).emit("match_found", { roomId, color: "black",time:game.blackTime});
     }
   });
 
@@ -100,7 +97,7 @@ io.on("connection", (socket) => {
     const players = io.sockets.adapter.rooms.get(roomId);
 
     if (players && players.size === 2) {
-      startGameTimer(roomId);
+      startGameTimer(roomId,game.white,game.black);
     }
   });
 

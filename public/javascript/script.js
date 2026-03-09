@@ -17,6 +17,7 @@ const enter_queue=()=>{
 socket.on("match_found", (data) => {
   sessionStorage.setItem("roomId",data.roomId);
   sessionStorage.setItem("color",data.color)
+  sessionStorage.setItem("time",data.time)
   isloading = false;
   hideloading();
   window.location.href = "html/game.html"
